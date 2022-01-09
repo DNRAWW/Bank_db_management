@@ -13,11 +13,11 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Human interface:
 
-- [ ] A first name;
-- [ ] A middle name;
-- [ ] A last name;
-- [ ] Sex;
-- [ ] Date of birth.
+- [x] A first name;
+- [x] A middle name;
+- [x] A last name;
+- [x] Sex;
+- [x] Date of birth.
 
 ## Customer interface:
 
