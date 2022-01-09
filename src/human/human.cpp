@@ -22,6 +22,20 @@ std::string Human::getMiddleName() {
     return middleName;
 }
 
+std::string Human::getFullName() {
+    std::string fullName = "";
+
+    fullName += firstName;
+    fullName += " ";
+
+    fullName += middleName;
+    fullName += " ";
+
+    fullName += lastName;
+
+    return fullName;
+}
+
 Sexes Human::getSex() {
     return sex;
 }

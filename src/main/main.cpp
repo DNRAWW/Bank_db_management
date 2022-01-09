@@ -6,7 +6,7 @@
 int main() {
     Human human("Kostya", "Moguchev", "Andrey", MALE, "27/02/2002");
 
-    std::cout   << "Human - " << human.getFirstName() << " " << human.getLastName() 
+    std::cout   << "Human - " << human.getFullName() << " "
                 << "\nDate of birth - "  << human.getDateOfBirth() << "\nSex - " << human.getSex();
 
     return 0;
