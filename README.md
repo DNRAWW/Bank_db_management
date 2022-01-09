@@ -6,7 +6,8 @@ This is my first proper C++ project. During this project I will learn:
 2. Using OOP;
 3. CMake;
 4. Using a database engine to store data (in this case postgres);
-5. Data structures.
+5. Data structures;
+6. Unit testing.
 
 # TODO
 
@@ -16,7 +17,7 @@ This is my first proper C++ project. During this project I will learn:
 - [ ] A middle name;
 - [ ] A last name;
 - [ ] Sex;
-- [ ] Date of birth;
+- [ ] Date of birth.
 
 ## Customer interface:
 
