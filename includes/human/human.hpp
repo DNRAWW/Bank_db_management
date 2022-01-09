@@ -19,7 +19,7 @@ class Human {
         std::string getMiddleName();
         Sexes getSex();
         std::string getDateOfBirth();
-
+        std::string getFullName();
         // Setters
 
         void setFirstName(std::string firstName);
