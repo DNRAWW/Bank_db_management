@@ -1,7 +1,6 @@
 #include "../../includes/customer/customer.hpp"
 #include <math.h>
 #include <stdexcept>
-#include <iostream>
 
 Customer::Customer(std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
                     std::string address, float amountOfMoney, bool isInDebt, float amountOfDebt)
