@@ -5,7 +5,7 @@
 
 class Customer : public Human {
     public:
-        Customer(std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
+        Customer(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
                 std::string address, float moneyInTheBank, bool isInDebt = false, float amountOfDebt = 0.0f);
 
         // Getters
