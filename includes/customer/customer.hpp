@@ -13,7 +13,7 @@ class Customer : public Human {
         std::string getAddress();
         float getMoney();
         bool isInDebt();
-        float getAmountOfDebt();
+        float getDebt();
 
         // Setters
 
