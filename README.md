@@ -28,9 +28,6 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Repository interface:
 
-<!-- In the repository class:
-- [ ] Connection or ***map?*** with pointers to objects; -->
-
 - [x] Method add;
 - [x] Method delete;
 - [ ] Method delete by property;
