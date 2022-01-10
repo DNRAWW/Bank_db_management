@@ -31,12 +31,12 @@ This is my first proper C++ project. During this project I will learn:
 <!-- In the repository class:
 - [ ] Connection or ***map?*** with pointers to objects; -->
 
-- [ ] Method add;
-- [ ] Method delete;
-- [ ] Method delete by property;
-- [ ] Method get all people;
-- [ ] Method get one person by id;
-- [ ] Method get by property and order (true or false).
+- [x] Method add;
+- [x] Method delete;
+- [x] Method delete by property;
+- [x] Method get all people;
+- [x] Method get one person by id;
+- [x] Method get by property and order (true or false).
 
 ## Provider interface:
 
