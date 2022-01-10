@@ -21,10 +21,10 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Customer interface:
 
-- [ ] Address;
-- [ ] Money in the bank;
-- [ ] Debt? (true or false);
-- [ ] Amount of debt.
+- [x] Address;
+- [x] Money in the bank;
+- [x] Debt? (true or false);
+- [x] Amount of debt.
 
 ## Repository interface:
 
