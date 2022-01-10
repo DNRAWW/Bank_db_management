@@ -3,6 +3,8 @@
 
 #include "../customer/customer.hpp"
 
+#include <vector>
+
 enum Order: char {
     DESC = 'D',
     ASC = 'A'
@@ -11,15 +13,10 @@ enum Order: char {
 
 class Repository {
     public:
-        Repository();
-        ~Repository();
-
-        virtual void add(Customer &customer) = 0;
-        virtual void deleteById(std::string id) = 0;
-        virtual void deleteByProperty(std::string property) = 0;
-        virtual void findAll() = 0;
-        virtual void findById(std::string id);
-        virtual void findByProperty(std::string property, bool IsOrdered = false, Order order = DESC);
+        virtual void addCustomer(Customer *customer) = 0;
+        virtual void deleteById(uint64_t id) = 0;
+        virtual std::vector<Customer*> findAll() = 0;
+        virtual Customer* findById(uint64_t id) = 0;
 };
 
 #endif

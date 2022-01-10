@@ -2,9 +2,9 @@
 #include <math.h>
 #include <stdexcept>
 
-Customer::Customer(std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
+Customer::Customer(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
                     std::string address, float amountOfMoney, bool isInDebt, float amountOfDebt)
-                    : Human(firstName, lastName, middleName, sex, dateOfBirth) {
+                    : Human(id, firstName, lastName, middleName, sex, dateOfBirth) {
 
     
     

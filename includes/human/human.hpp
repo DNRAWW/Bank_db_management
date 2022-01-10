@@ -10,7 +10,7 @@ enum Sexes: char {
 
 class Human {
     public:
-        Human(std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth);
+        Human(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth);
         
         // Getters
         
@@ -20,6 +20,8 @@ class Human {
         Sexes getSex();
         std::string getDateOfBirth();
         std::string getFullName();
+        uint64_t getId();
+
         // Setters
 
         void setFirstName(std::string firstName);
@@ -27,6 +29,7 @@ class Human {
         void setMiddleName(std::string middleName);
         
     protected:
+        uint64_t id;
         std::string firstName;
         std::string middleName;
         std::string lastName;
