@@ -33,10 +33,10 @@ This is my first proper C++ project. During this project I will learn:
 
 - [x] Method add;
 - [x] Method delete;
-- [x] Method delete by property;
+- [ ] Method delete by property;
 - [x] Method get all people;
 - [x] Method get one person by id;
-- [x] Method get by property and order (true or false).
+- [ ] Method get by property and order (true or false).
 
 ## Provider interface:
 
@@ -46,6 +46,7 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Bank managment class:
 
+- [ ] A provider;
 - [ ] A repository;
 - [ ] Method add;
 - [ ] Method change;
