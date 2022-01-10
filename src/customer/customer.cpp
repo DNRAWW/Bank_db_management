@@ -1,38 +1,40 @@
 #include "../../includes/customer/customer.hpp"
 #include <math.h>
 #include <stdexcept>
+#include <iostream>
 
 Customer::Customer(std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
-                    std::string address, float amountOfMoney, bool isInDebt = false, float amountOfDebt = 0.0)
+                    std::string address, float amountOfMoney, bool isInDebt, float amountOfDebt)
                     : Human(firstName, lastName, middleName, sex, dateOfBirth) {
 
     
     
     setAddress(address);
     
-    if(amountOfMoney < 0.0) {
+    if(amountOfMoney < 0.0f) {
        throw std::runtime_error("Amount of money cannot be negative");
     }
+
     else {
         setAmountOfMoney(amountOfMoney);
     }
 
-    if(isInDebt && amountOfDebt < 0.0) {
+    if(isInDebt && amountOfDebt < 0.0f) {
         throw std::runtime_error("Debt cannot be negative");
     }
 
-    else if(isInDebt && amountOfDebt == 0.0) {
+    else if(isInDebt && amountOfDebt == 0.0f) {
         throw std::runtime_error("Debt cannot equal 0");
     } 
     
-    else if( (isInDebt && amountOfDebt > 0.0) || (!isInDebt && amountOfDebt > 0.0) ) {
+    else if( (isInDebt && amountOfDebt > 0.0f) || (!isInDebt && amountOfDebt > 0.0f) ) {
         setDebtStatus(true);
         setAmountOfDebt(amountOfDebt);
     }
 
     else {
+        setAmountOfDebt(0.0f);
         setDebtStatus(false);
-        setAmountOfDebt(0.0);
     }
 }
 
@@ -48,7 +50,7 @@ bool Customer::isInDebt(){
     return inDebt;
 }
 
-float Customer::getAmountOfDebt(){
+float Customer::getDebt(){
     return amountOfDebt;
 }
 
@@ -57,7 +59,15 @@ void Customer::setAddress(std::string address){
 }
 
 void Customer::setDebtStatus(bool status){
-    inDebt = status;
+    if(!status && getDebt() > 0) {
+        return;
+    }
+    else if(status && getDebt() == 0) {
+        return;
+    }
+    else {
+        inDebt = status;
+    }
 }
 
 void Customer::setAmountOfMoney(float money){
@@ -71,12 +81,12 @@ void Customer::changeAmountOfMoney(float changeInMoney){
 void Customer::setAmountOfDebt(float debt){
     amountOfDebt = debt;
     
-    if(amountOfDebt > 0.0) {
+    if(amountOfDebt > 0) {
         setDebtStatus(true);
     }
-    
+
     else {
-        setAmountOfDebt(0.0);
+        amountOfDebt = 0.0f;
         setDebtStatus(false);
     }
 }
@@ -84,14 +94,14 @@ void Customer::setAmountOfDebt(float debt){
 void Customer::changeAmountOfDebt(float changeInDebt){
     amountOfDebt += changeInDebt;
 
-    if(!isInDebt() && amountOfDebt > 0.0) {
+    if(!isInDebt() && amountOfDebt > 0.0f) {
         setDebtStatus(true);
     }
 
-    else if(isInDebt() && amountOfDebt <= 0.0) {
+    else if(isInDebt() && amountOfDebt <= 0.0f) {
         setDebtStatus(false);
 
-        if(amountOfDebt < 0) {
+        if(amountOfDebt < 0.0f) {
             changeAmountOfMoney(std::fabs(amountOfDebt));
         }
     }
