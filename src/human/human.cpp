@@ -1,12 +1,7 @@
 #include "../../includes/human/human.hpp"
 #include <iostream>
 
-Human::Human(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth) {
-    Human::id = id;
-    setFirstName(firstName);
-    setLastName(lastName);
-    setMiddleName(middleName);
-
+Human::Human(Sexes sex, std::string dateOfBirth) {
     Human::sex = sex;
     Human::dateOfBirth = dateOfBirth;
 }

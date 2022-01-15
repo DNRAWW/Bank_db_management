@@ -1,5 +1,6 @@
 #include "../../includes/repository/mock_repository.hpp"
 #include <stdexcept>
+#include <iostream>
 
 MockRepository::~MockRepository() {
     for(it = db.begin(); it != db.end();) {
@@ -8,18 +9,12 @@ MockRepository::~MockRepository() {
     }
 }
 
-void MockRepository::addCustomer(Customer *customer) {
-    int numberOfItems = db.bucket_count();
+void MockRepository::addCustomer(Customer* customer) {
+    int numberOfItems = db.size();
 
-    uint64_t customerId = customer->getId();
+    customer->setId(numberOfItems + 1);
 
-    if(db.count(customerId) != 0) {
-        throw std::runtime_error("There is already a customer with that id");
-    }
-
-    else {
-        db.insert(std::make_pair(customerId, customer));
-    }
+    db.insert(std::make_pair(numberOfItems + 1, customer));
 }
 
 void MockRepository::deleteById(uint64_t id) {

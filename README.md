@@ -43,14 +43,14 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Bank managment class:
 
-- [ ] A provider;
-- [ ] A repository;
-- [ ] Method add;
+- [x] A provider;
+- [x] A repository;
+- [x] Method add;
 - [ ] Method change;
-- [ ] Method delete by id;
+- [x] Method delete by id;
 - [ ] Method delete by properties;
-- [ ] Method get all people;
-- [ ] Method get one person by id;
+- [x] Method get all people;
+- [x] Method get one person by id;
 - [ ] Method get by properties and order (NULL or DESC/ASC).
 
 ## Main loop class:

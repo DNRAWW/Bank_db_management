@@ -2,39 +2,9 @@
 #include <math.h>
 #include <stdexcept>
 
-Customer::Customer(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
-                    std::string address, float amountOfMoney, bool isInDebt, float amountOfDebt)
-                    : Human(id, firstName, lastName, middleName, sex, dateOfBirth) {
-
-    
-    
-    setAddress(address);
-    
-    if(amountOfMoney < 0.0f) {
-       throw std::runtime_error("Amount of money cannot be negative");
-    }
-
-    else {
-        setAmountOfMoney(amountOfMoney);
-    }
-
-    if(isInDebt && amountOfDebt < 0.0f) {
-        throw std::runtime_error("Debt cannot be negative");
-    }
-
-    else if(isInDebt && amountOfDebt == 0.0f) {
-        throw std::runtime_error("Debt cannot equal 0");
-    } 
-    
-    else if( (isInDebt && amountOfDebt > 0.0f) || (!isInDebt && amountOfDebt > 0.0f) ) {
-        setDebtStatus(true);
-        setAmountOfDebt(amountOfDebt);
-    }
-
-    else {
-        setAmountOfDebt(0.0f);
-        setDebtStatus(false);
-    }
+Customer::Customer(Sexes sex, std::string dateOfBirth) : Human(sex, dateOfBirth) {
+    setDebtStatus(false);
+    setAmountOfDebt(0.0f);
 }
 
 std::string Customer::getAddress() {
@@ -104,4 +74,8 @@ void Customer::changeAmountOfDebt(float changeInDebt){
             changeAmountOfMoney(std::fabs(amountOfDebt));
         }
     }
+}
+
+void Customer::setId(uint64_t id) {
+    Customer::id = id;
 }
