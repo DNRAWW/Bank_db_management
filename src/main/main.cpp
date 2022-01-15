@@ -1,5 +1,3 @@
-// main.cpp for testing and running the programm
-
 #include "../../includes/bankManagment/bankManagment.hpp"
 #include "../../includes/providerFactory/providerFactory.hpp"
 #include <iostream>
