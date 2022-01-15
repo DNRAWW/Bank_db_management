@@ -5,14 +5,12 @@
 
 class Provider {
     public:
-        Provider();
         virtual void connect() = 0;
         virtual void disconnect() = 0;
-        virtual Repository& getRepository() = 0;
-
-
-    private:
-        Repository &repository;
+        virtual Repository* getRepository() = 0;
+        
+    protected:
+        Repository* repository;
 };
 
 #endif

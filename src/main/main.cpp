@@ -1,20 +1,22 @@
 // main.cpp for testing and running the programm
 
-#include "../../includes/repository/mock_repository.hpp"
+#include "../../includes/provider/MockProvider.hpp"
 #include <iostream>
 
 int main() {
     
     Customer customer(1, "Kostya", "Moguchev", "Andrey", MALE, "27/02/2002", "Pr.Kulturi d 24 k 1 appartment 68", 10000.0f);
     
-    MockRepository repository;
+    MockProvider provider;
 
-    repository.addCustomer(&customer);
-    repository.addCustomer(new Customer(2, "Vova", "Musika", "Vova", MALE, "12/10/2003", "dwafwafaw", 50000.0f, true, 1000.0f));
-    repository.addCustomer(new Customer(3, "AWgagwa", "waGawg", "HSga", FEMALE, "22/05/1989", "dwafwafaw", 22515.0f));
-    repository.addCustomer(new Customer(4, "AWFAgawga", "GAWaga", "HAwg", FEMALE, "02/12/1973", "Ddasda", 2151.0f, true, 15315.0f));
+    Repository* repository = provider.getRepository();
 
-    std::vector<Customer*> allCustomers = repository.findAll();
+    repository->addCustomer(&customer);
+    repository->addCustomer(new Customer(2, "Vova", "Musika", "Vova", MALE, "12/10/2003", "dwafwafaw", 50000.0f, true, 1000.0f));
+    repository->addCustomer(new Customer(3, "AWgagwa", "waGawg", "HSga", FEMALE, "22/05/1989", "dwafwafaw", 22515.0f));
+    repository->addCustomer(new Customer(4, "AWFAgawga", "GAWaga", "HAwg", FEMALE, "02/12/1973", "Ddasda", 2151.0f, true, 15315.0f));
+
+    std::vector<Customer*> allCustomers = repository->findAll();
 
     printf("%2s %-30s %2s %20s %12s %12s %10s \n", "Id", "FullName", "Sex", "Date of birth", "Money", "Is in debt?", "Debt");
 
