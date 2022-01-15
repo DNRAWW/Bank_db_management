@@ -2,7 +2,6 @@
 
 #include "../../includes/repository/mock_repository.hpp"
 #include <iostream>
-#include <stdlib.h>
 
 int main() {
     
