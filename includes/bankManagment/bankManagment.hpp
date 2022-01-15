@@ -6,7 +6,8 @@
 class BankManagment {
     public: 
         BankManagment(Provider* provider);
-        void add();
+        ~BankManagment();
+        void add(Customer* customer);
         void deleteById(uint64_t id);
         std::vector<Customer*> getAllCustomers();
         Customer* getOneCustomer(uint64_t id);

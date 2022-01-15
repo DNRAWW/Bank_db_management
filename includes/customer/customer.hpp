@@ -5,8 +5,7 @@
 
 class Customer : public Human {
     public:
-        Customer(uint64_t id, std::string firstName, std::string lastName, std::string middleName, Sexes sex, std::string dateOfBirth,
-                std::string address, float moneyInTheBank, bool isInDebt = false, float amountOfDebt = 0.0f);
+        Customer(Sexes sex, std::string dateOfBirth);
 
         // Getters
         
@@ -25,6 +24,8 @@ class Customer : public Human {
         
         void setAmountOfDebt(float debt);
         void changeAmountOfDebt(float changeInDebt);
+
+        void setId(uint64_t id); // for mock data purposes
 
     private:
         std::string address;
