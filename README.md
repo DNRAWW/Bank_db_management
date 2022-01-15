@@ -37,9 +37,9 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Provider interface:
 
-- [ ] Method for creating a connection to database;
-- [ ] Method for closing the connection;
-- [ ] Method get repository.
+- [x] Method for creating a connection to database;
+- [x] Method for closing the connection;
+- [x] Method get repository.
 
 ## Bank managment class:
 

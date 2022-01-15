@@ -4,7 +4,7 @@
 #include "./repository.hpp"
 #include <unordered_map>
 
-class MockRepository : Repository {
+class MockRepository : public Repository {
     public:
         ~MockRepository();
 
@@ -16,8 +16,6 @@ class MockRepository : Repository {
     private:
         std::unordered_map <uint64_t, Customer*> db;
         std::unordered_map <uint64_t, Customer*>::iterator it;
-
-
 };
 
 #endif
