@@ -4,7 +4,6 @@
 #include <iostream>
 
 int main() {
-    
     Customer customer(1, "Kostya", "Moguchev", "Andrey", MALE, "27/02/2002", "Pr.Kulturi d 24 k 1 appartment 68", 10000.0f);
     
     MockProvider provider;
@@ -20,7 +19,7 @@ int main() {
 
     printf("%2s %-30s %2s %20s %12s %12s %10s \n", "Id", "FullName", "Sex", "Date of birth", "Money", "Is in debt?", "Debt");
 
-    for(int c = 0; c < 4; c++) {
+    for(int c = 0; c < allCustomers.size(); c++) {
        
         Customer* currentCustomer = allCustomers.at(c);
 
