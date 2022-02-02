@@ -5,12 +5,6 @@
 
 #include <vector>
 
-enum Order: char {
-    DESC = 'D',
-    ASC = 'A'
-};
-
-
 class Repository {
     public:
         virtual void addCustomer(Customer *customer) = 0;
