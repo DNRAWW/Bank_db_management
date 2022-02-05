@@ -1,5 +1,4 @@
 #include "../../includes/customer/customer.hpp"
-#include <math.h>
 #include <stdexcept>
 
 Customer::Customer(Sexes sex, std::string dateOfBirth) : Human(sex, dateOfBirth) {
@@ -71,7 +70,7 @@ void Customer::changeAmountOfDebt(float changeInDebt){
         setDebtStatus(false);
 
         if(amountOfDebt < 0.0f) {
-            changeAmountOfMoney(std::fabs(amountOfDebt));
+            changeAmountOfMoney(abs(amountOfDebt));
         }
     }
 }

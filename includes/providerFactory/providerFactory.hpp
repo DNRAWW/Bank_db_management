@@ -3,10 +3,11 @@
 
 #include "../provider/provider.hpp"
 
-// It returns a provider for managment class to work with.
-// It needs to be here so that we easily can change
-// which provider we are going to use use.
+// Returns a provider for managment class to work with.
+// Needs to be here so that we easily can change
+// which provider we are going to use.
 
-Provider* providerFactory();
+template <class T>
+Provider<T>* providerFactory();
 
 #endif

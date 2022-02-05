@@ -4,18 +4,19 @@
 #include "./repository.hpp"
 #include <unordered_map>
 
-class MockRepository : public Repository {
+template <class T>
+class MockRepository : public Repository<T> {
     public:
         ~MockRepository();
 
-        void addCustomer(Customer *customer);
+        void add(T *entity);
         void deleteById(uint64_t id);
-        std::vector<Customer*> findAll();
-        Customer* findById(uint64_t id);
+        std::vector<T*> findAll();
+        T* findById(uint64_t id);
 
     private:
-        std::unordered_map <uint64_t, Customer*> db;
-        std::unordered_map <uint64_t, Customer*>::iterator it;
+        std::unordered_map <uint64_t, T*> db;
+        typename std::unordered_map <uint64_t, T*>::iterator it;
 };
 
 #endif
