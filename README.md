@@ -36,7 +36,7 @@ This is my first proper C++ project. During this project I will learn:
 
 ## Main loop class:
 
-- [ ] Run method.
+- [x] Run method.
 
 ## Some other features
 
