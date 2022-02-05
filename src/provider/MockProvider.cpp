@@ -2,22 +2,31 @@
 #include "../../includes/repository/mock_repository.hpp"
 #include <iostream>
 
-MockProvider::MockProvider() {
-    repository = new MockRepository();
+template <class T>
+MockProvider<T>::MockProvider() {
+    MockProvider::repository = new MockRepository<T>();
 }
 
-MockProvider::~MockProvider() {
-    delete repository;
+template <class T>
+MockProvider<T>::~MockProvider() {
+    delete MockProvider::repository;
 }
 
-void MockProvider::connect() {
+template <class T>
+void MockProvider<T>::connect() {
     std::cout << "nothing to do" << std::endl;
 }
 
-void MockProvider::disconnect() {
+template <class T>
+void MockProvider<T>::disconnect() {
     std::cout << "nothing to do" << std::endl;
 }
 
-Repository* MockProvider::getRepository() {
-    return repository;
+template <class T>
+Repository<T>* MockProvider<T>::getRepository() {
+    return MockProvider::repository;
 }
+
+// linker error prevention
+
+template MockProvider<Customer>::MockProvider();

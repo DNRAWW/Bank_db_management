@@ -3,13 +3,14 @@
 
 #include "provider.hpp"
 
-class MockProvider : public Provider {
+template <class T>
+class MockProvider : public Provider<T> {
     public:
         MockProvider();
         ~MockProvider();
         void connect();
         void disconnect();
-        Repository* getRepository();
+        Repository<T>* getRepository();
 };
 
 #endif

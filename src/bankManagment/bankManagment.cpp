@@ -1,27 +1,42 @@
 #include "../../includes/bankManagment/bankManagment.hpp"
 
-BankManagment::BankManagment(Provider* provider) {
+template <class T>
+BankManagment<T>::BankManagment(Provider<T>* provider) {
     BankManagment::provider = provider;
     // provider->connect(); for postgres
     repository = provider->getRepository();
 }
 
-BankManagment::~BankManagment() {
-    // provider->disconnect(); for postgres
+template <class T>
+BankManagment<T>::~BankManagment() {
+    provider->disconnect();
 }
 
-void BankManagment::deleteById(uint64_t id) {
+template <class T>
+void BankManagment<T>::deleteById(uint64_t id) {
     repository->deleteById(id);
 }
 
-std::vector<Customer*> BankManagment::getAllCustomers() {
+template <class T>
+std::vector<T*> BankManagment<T>::getAll() {
     return repository->findAll();
 }
 
-Customer* BankManagment::getOneCustomer(uint64_t id) {
+template <class T>
+T* BankManagment<T>::getOne(uint64_t id) {
     return repository->findById(id);
 }
 
-void BankManagment::add(Customer* customer) {
-    repository->addCustomer(customer);
+template <class T>
+void BankManagment<T>::add(T* entity) {
+    repository->add(entity);
 }
+
+// linker error prevention
+
+template BankManagment<Customer>::BankManagment(Provider<Customer>* provider);
+template BankManagment<Customer>::~BankManagment();
+template void BankManagment<Customer>::add(Customer*);
+template void BankManagment<Customer>::deleteById(uint64_t);
+template std::vector<Customer*> BankManagment<Customer>::getAll();
+template Customer* BankManagment<Customer>::getOne(uint64_t);

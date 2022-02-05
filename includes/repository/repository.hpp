@@ -5,12 +5,13 @@
 
 #include <vector>
 
+template <class T>
 class Repository {
     public:
-        virtual void addCustomer(Customer *customer) = 0;
+        virtual void add(T *entity) = 0;
         virtual void deleteById(uint64_t id) = 0;
-        virtual std::vector<Customer*> findAll() = 0;
-        virtual Customer* findById(uint64_t id) = 0;
+        virtual std::vector<T*> findAll() = 0;
+        virtual T* findById(uint64_t id) = 0;
 };
 
 #endif

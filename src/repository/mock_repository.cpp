@@ -2,22 +2,25 @@
 #include <stdexcept>
 #include <iostream>
 
-MockRepository::~MockRepository() {
+template <class T>
+MockRepository<T>::~MockRepository() {
     for(it = db.begin(); it != db.end();) {
         delete it->second;
         db.erase(it);
     }
 }
 
-void MockRepository::addCustomer(Customer* customer) {
+template <class T>
+void MockRepository<T>::add(T* entity) {
     int numberOfItems = db.size();
 
-    customer->setId(numberOfItems + 1);
+    entity->setId(numberOfItems + 1);
 
-    db.insert(std::make_pair(numberOfItems + 1, customer));
+    db.insert(std::make_pair(numberOfItems + 1, entity));
 }
 
-void MockRepository::deleteById(uint64_t id) {
+template <class T>
+void MockRepository<T>::deleteById(uint64_t id) {
     it = db.find(id);
 
     if(it == db.end()){
@@ -30,17 +33,19 @@ void MockRepository::deleteById(uint64_t id) {
     }
 }
 
-std::vector<Customer*>  MockRepository::findAll() {
-   std::vector<Customer*> allCustomers;
+template <class T>
+std::vector<T*>  MockRepository<T>::findAll() {
+   std::vector<T*> allEntities;
 
    for(it = db.begin(); it != db.end(); it++) {
-       allCustomers.push_back(it->second);
+       allEntities.push_back(it->second);
    }
 
-   return allCustomers;
+   return allEntities;
 }
 
-Customer* MockRepository::findById(uint64_t id) {
+template <class T>
+T* MockRepository<T>::findById(uint64_t id) {
     it = db.find(id);
 
     if(it == db.end()){
@@ -50,3 +55,7 @@ Customer* MockRepository::findById(uint64_t id) {
         return it->second;
     }
 }
+
+// linker error prevention
+
+template MockRepository<Customer>::~MockRepository();

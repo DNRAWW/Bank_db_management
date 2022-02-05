@@ -70,7 +70,7 @@ void Customer::changeAmountOfDebt(float changeInDebt){
         setDebtStatus(false);
 
         if(amountOfDebt < 0.0f) {
-            changeAmountOfMoney(fabs(amountOfDebt));
+            changeAmountOfMoney(abs(amountOfDebt));
         }
     }
 }

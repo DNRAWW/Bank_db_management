@@ -3,18 +3,19 @@
 
 #include "../provider/provider.hpp"
 
+template <class T>
 class BankManagment {
     public: 
-        BankManagment(Provider* provider);
+        BankManagment(Provider<T>* provider);
         ~BankManagment();
-        void add(Customer* customer);
+        void add(T* entity);
         void deleteById(uint64_t id);
-        std::vector<Customer*> getAllCustomers();
-        Customer* getOneCustomer(uint64_t id);
+        std::vector<T*> getAll();
+        T* getOne(uint64_t id);
 
     private:
-        Provider* provider;
-        Repository* repository;
+        Provider<T>* provider;
+        Repository<T>* repository;
 };
 
 #endif

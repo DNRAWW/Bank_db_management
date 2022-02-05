@@ -1,7 +1,5 @@
-#include "../../includes/bankManagment/bankManagment.hpp"
-#include "../../includes/providerFactory/providerFactory.hpp"
-#include <iostream>
 #include "../../includes/mainLoop/mainLoop.hpp"
+#include <iostream>
 
 void mainLoop() {
     Customer customer(MALE, "27/02/2002");
@@ -20,14 +18,14 @@ void mainLoop() {
     customer2.setAddress("WAGaha");
     customer2.setAmountOfMoney(10000.0f);
 
-    Provider* provider = providerFactory();
+    Provider<Customer>* provider = providerFactory<Customer>();
 
-    BankManagment bankManagment(provider);
+    BankManagment<Customer> bankManagment(provider);
 
     bankManagment.add(&customer);
     bankManagment.add(&customer2);
 
-    std::vector<Customer*> allCustomers = bankManagment.getAllCustomers();
+    std::vector<Customer*> allCustomers = bankManagment.getAll();
 
     printf("%-5s %-30s %2s %20s %12s %12s %10s \n", "Id", "FullName", "Sex", "Date of birth", "Money", "Is in debt?", "Debt");
 

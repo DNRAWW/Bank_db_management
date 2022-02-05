@@ -4,7 +4,7 @@ project(bank_db_managment)
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
 
-include_directories(include)
+include_directories(includes)
 
 file(GLOB SOURCES src/*/*.cpp)
 
