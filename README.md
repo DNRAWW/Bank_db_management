@@ -1,14 +1,5 @@
 # Bank database managment
 
-This is my first proper C++ project. During this project I will learn:
-
-1. Modern C++;
-2. Using OOP;
-3. CMake;
-4. Using a database engine to store data (in this case postgres);
-5. Data structures;
-6. Unit testing.
-
 # TODO
 
 ## Repository interface:
