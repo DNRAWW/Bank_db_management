@@ -7,8 +7,7 @@ This is my first proper C++ project. During this project I will learn:
 3. CMake;
 4. Using a database engine to store data (in this case postgres);
 5. Data structures;
-6. Unit testing;
-7. SDL.
+6. Unit testing.
 
 # TODO
 
