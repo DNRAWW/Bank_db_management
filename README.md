@@ -28,6 +28,6 @@
 
 - [x] Run method.
 
-## Some other features
+## Other features
 
 - [ ] UI
