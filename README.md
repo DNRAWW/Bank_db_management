@@ -4,16 +4,16 @@
 
 ## Get all
 
-- [ ] Button to get all;
+- [ ] Button to get all.
 
 ## Get one
 
-- [ ] Input validation
+- [ ] Input validation.
 
 ## Add
 
-- [ ] Input validation
+- [ ] Input validation.
 
 ## Delete
 
-- [ ] Show the customer and ask if they are sure
+- [ ] Show the customer and ask if they are sure.
