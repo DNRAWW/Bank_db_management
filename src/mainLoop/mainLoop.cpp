@@ -2,8 +2,8 @@
 #include "../../includes/forms/mainWindow.h"
 #include <iostream>
 #include <QApplication>
-#include <QWidget>
-#include <QMainWindow>
+#include <QTableWidgetItem>
+#include <string>
 
 int mainLoop(int argc, char **argv) {
 
@@ -14,6 +14,8 @@ int mainLoop(int argc, char **argv) {
     ui.setupUi(&mainWindow);
 
     mainWindow.show();
+
+    ui.allEntityTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     Customer customer(MALE, "27/02/2002");
 
@@ -30,6 +32,7 @@ int mainLoop(int argc, char **argv) {
     customer2.setMiddleName("HaghwafA");
     customer2.setAddress("WAGaha");
     customer2.setAmountOfMoney(10000.0f);
+    customer2.setAmountOfDebt(5000.0f);
 
     Provider<Customer>* provider = providerFactory<Customer>();
 
@@ -51,6 +54,26 @@ int mainLoop(int argc, char **argv) {
                     currentCustomer->getFullName().c_str(), currentCustomer->getSex(),
                     currentCustomer->getDateOfBirth().c_str(), currentCustomer->getMoney(), 
                     debtStatusAnswer.c_str(), currentCustomer->getDebt());
+
+        ui.allEntityTable->insertRow( ui.allEntityTable->rowCount() );
+
+        QTableWidgetItem* id = new QTableWidgetItem(QString::number(currentCustomer->getId()));
+        QTableWidgetItem* fullName = new QTableWidgetItem(QString::fromStdString(currentCustomer->getFullName()));
+        QTableWidgetItem* sex = new QTableWidgetItem(QChar(currentCustomer->getSex()));
+        QTableWidgetItem* dateOfBirth = new QTableWidgetItem(QString::fromStdString(currentCustomer->getDateOfBirth()));
+        QTableWidgetItem* address = new QTableWidgetItem(QString::fromStdString(currentCustomer->getAddress()));
+        QTableWidgetItem* money = new QTableWidgetItem(QString::number(currentCustomer->getMoney()));
+        QTableWidgetItem* debtStatus = new QTableWidgetItem(QString::fromStdString(debtStatusAnswer));
+        QTableWidgetItem* debt = new QTableWidgetItem(QString::number(currentCustomer->getDebt()));
+
+        ui.allEntityTable->setItem(c, 0, id);
+        ui.allEntityTable->setItem(c, 1, fullName);
+        ui.allEntityTable->setItem(c, 2, sex);
+        ui.allEntityTable->setItem(c, 3, dateOfBirth);
+        ui.allEntityTable->setItem(c, 4, address);
+        ui.allEntityTable->setItem(c, 5, money);
+        ui.allEntityTable->setItem(c, 6, debtStatus);
+        ui.allEntityTable->setItem(c, 7, debt);
     }
 
     return app.exec();

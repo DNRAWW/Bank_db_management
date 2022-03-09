@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>905</width>
+    <height>653</height>
    </rect>
   </property>
   <property name="mouseTracking">
@@ -16,13 +16,125 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>901</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Get All</string>
+     </attribute>
+     <widget class="QTableWidget" name="allEntityTable">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>901</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="gridStyle">
+       <enum>Qt::SolidLine</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>112</number>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Full name</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Sex</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Date of birth</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Address</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Money</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Is in debt</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Debt</string>
+       </property>
+      </column>
+     </widget>
+     <widget class="QPushButton" name="getAllButton">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>901</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Get all</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Get One</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Add</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Delete</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>905</width>
      <height>22</height>
     </rect>
    </property>
@@ -32,18 +144,7 @@
     </property>
     <addaction name="actionCustomer"/>
    </widget>
-   <widget class="QMenu" name="menuMethod">
-    <property name="title">
-     <string>Method</string>
-    </property>
-    <addaction name="separator"/>
-    <addaction name="actiondeleteById"/>
-    <addaction name="actiongetAll"/>
-    <addaction name="actiongetOne"/>
-    <addaction name="actionadd"/>
-   </widget>
    <addaction name="menuEntity"/>
-   <addaction name="menuMethod"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionCustomer">
