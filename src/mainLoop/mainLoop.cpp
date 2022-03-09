@@ -1,7 +1,20 @@
 #include "../../includes/mainLoop/mainLoop.hpp"
+#include "../../includes/forms/mainWindow.h"
 #include <iostream>
+#include <QApplication>
+#include <QWidget>
+#include <QMainWindow>
 
-void mainLoop() {
+int mainLoop(int argc, char **argv) {
+
+    QApplication app(argc, argv);    
+    Ui::MainWindow ui;
+    QMainWindow mainWindow;
+
+    ui.setupUi(&mainWindow);
+
+    mainWindow.show();
+
     Customer customer(MALE, "27/02/2002");
 
     customer.setFirstName("Kostya");
@@ -39,4 +52,6 @@ void mainLoop() {
                     currentCustomer->getDateOfBirth().c_str(), currentCustomer->getMoney(), 
                     debtStatusAnswer.c_str(), currentCustomer->getDebt());
     }
+
+    return app.exec();
 }

@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.10)
 project(bank_db_managment)
 
 set(EXECUTABLE_OUTPUT_PATH ../bin)
+set(UIS ../forms/**.ui)
+set(CMAKE_AUTOMOC ON)
 
 include_directories(includes)
 

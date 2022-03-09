@@ -4,6 +4,6 @@
 #include "../../includes/bankManagment/bankManagment.hpp"
 #include "../../includes/providerFactory/providerFactory.hpp"
 
-void mainLoop();
+int mainLoop(int argc, char **argv);
 
 #endif
