@@ -4,7 +4,7 @@
 
 ## Get all
 
-- [ ] Button to get all.
+- [x] Button to get all.
 
 ## Get one
 
