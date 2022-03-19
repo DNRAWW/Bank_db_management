@@ -23,11 +23,6 @@ void MainWindow::getAll() {
 
         std::string debtStatusAnswer = currentCustomer->isInDebt() ? "Yes" : "No";
 
-        printf("%-5li %-30s %2c %20s %12.2f %12s %10.2f \n", currentCustomer->getId(), 
-                    currentCustomer->getFullName().c_str(), currentCustomer->getSex(),
-                    currentCustomer->getDateOfBirth().c_str(), currentCustomer->getMoney(), 
-                    debtStatusAnswer.c_str(), currentCustomer->getDebt());
-
         ui->allEntityTable->insertRow( ui->allEntityTable->rowCount() );
 
         QTableWidgetItem* id = new QTableWidgetItem(QString::number(currentCustomer->getId()));
