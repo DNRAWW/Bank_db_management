@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef C_MAINWINDOW_H
+#define C_MAINWINDOW_H
 
 #include <QMainWindow>
 #include "../bankManagment/bankManagment.hpp"
@@ -21,5 +21,8 @@ private:
 
 private slots:
     void getAll();
+    void getOne();
+    // void add();
+    // void delete();
 };
-#endif // MAINWINDOW_H
+#endif // C_MAINWINDOW_H

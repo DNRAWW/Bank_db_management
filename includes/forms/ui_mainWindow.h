@@ -6,17 +6,19 @@
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_MAINWINDOW_H
-#define UI_MAINWINDOW_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
@@ -38,6 +40,11 @@ public:
     QTableWidget *allEntityTable;
     QPushButton *getAllButton;
     QWidget *tab_2;
+    QPushButton *getOneButton;
+    QTableWidget *oneEntityTable;
+    QLabel *label;
+    QSpinBox *idInput_One;
+    QLabel *ErrorLable;
     QWidget *tab_3;
     QWidget *tab_4;
     QMenuBar *menubar;
@@ -98,6 +105,46 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        getOneButton = new QPushButton(tab_2);
+        getOneButton->setObjectName(QString::fromUtf8("getOneButton"));
+        getOneButton->setGeometry(QRect(0, 210, 901, 31));
+        oneEntityTable = new QTableWidget(tab_2);
+        if (oneEntityTable->columnCount() < 8)
+            oneEntityTable->setColumnCount(8);
+        QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(0, __qtablewidgetitem8);
+        QTableWidgetItem *__qtablewidgetitem9 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(1, __qtablewidgetitem9);
+        QTableWidgetItem *__qtablewidgetitem10 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(2, __qtablewidgetitem10);
+        QTableWidgetItem *__qtablewidgetitem11 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(3, __qtablewidgetitem11);
+        QTableWidgetItem *__qtablewidgetitem12 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(4, __qtablewidgetitem12);
+        QTableWidgetItem *__qtablewidgetitem13 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(5, __qtablewidgetitem13);
+        QTableWidgetItem *__qtablewidgetitem14 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(6, __qtablewidgetitem14);
+        QTableWidgetItem *__qtablewidgetitem15 = new QTableWidgetItem();
+        oneEntityTable->setHorizontalHeaderItem(7, __qtablewidgetitem15);
+        oneEntityTable->setObjectName(QString::fromUtf8("oneEntityTable"));
+        oneEntityTable->setGeometry(QRect(0, 240, 901, 71));
+        oneEntityTable->setLineWidth(1);
+        oneEntityTable->setGridStyle(Qt::SolidLine);
+        oneEntityTable->setSortingEnabled(true);
+        oneEntityTable->horizontalHeader()->setDefaultSectionSize(112);
+        label = new QLabel(tab_2);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(330, 120, 251, 17));
+        label->setScaledContents(false);
+        label->setAlignment(Qt::AlignCenter);
+        idInput_One = new QSpinBox(tab_2);
+        idInput_One->setObjectName(QString::fromUtf8("idInput_One"));
+        idInput_One->setGeometry(QRect(330, 140, 251, 26));
+        idInput_One->setMaximum(999999999);
+        ErrorLable = new QLabel(tab_2);
+        ErrorLable->setObjectName(QString::fromUtf8("ErrorLable"));
+        ErrorLable->setGeometry(QRect(270, 340, 291, 20));
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
@@ -156,11 +203,31 @@ public:
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Debt", nullptr));
         getAllButton->setText(QApplication::translate("MainWindow", "Get all", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QApplication::translate("MainWindow", "Get All", nullptr));
+        getOneButton->setText(QApplication::translate("MainWindow", "Get", nullptr));
+        QTableWidgetItem *___qtablewidgetitem8 = oneEntityTable->horizontalHeaderItem(0);
+        ___qtablewidgetitem8->setText(QApplication::translate("MainWindow", "id", nullptr));
+        QTableWidgetItem *___qtablewidgetitem9 = oneEntityTable->horizontalHeaderItem(1);
+        ___qtablewidgetitem9->setText(QApplication::translate("MainWindow", "Full name", nullptr));
+        QTableWidgetItem *___qtablewidgetitem10 = oneEntityTable->horizontalHeaderItem(2);
+        ___qtablewidgetitem10->setText(QApplication::translate("MainWindow", "Sex", nullptr));
+        QTableWidgetItem *___qtablewidgetitem11 = oneEntityTable->horizontalHeaderItem(3);
+        ___qtablewidgetitem11->setText(QApplication::translate("MainWindow", "Date of birth", nullptr));
+        QTableWidgetItem *___qtablewidgetitem12 = oneEntityTable->horizontalHeaderItem(4);
+        ___qtablewidgetitem12->setText(QApplication::translate("MainWindow", "Address", nullptr));
+        QTableWidgetItem *___qtablewidgetitem13 = oneEntityTable->horizontalHeaderItem(5);
+        ___qtablewidgetitem13->setText(QApplication::translate("MainWindow", "Money", nullptr));
+        QTableWidgetItem *___qtablewidgetitem14 = oneEntityTable->horizontalHeaderItem(6);
+        ___qtablewidgetitem14->setText(QApplication::translate("MainWindow", "Is in debt", nullptr));
+        QTableWidgetItem *___qtablewidgetitem15 = oneEntityTable->horizontalHeaderItem(7);
+        ___qtablewidgetitem15->setText(QApplication::translate("MainWindow", "Debt", nullptr));
+        label->setText(QApplication::translate("MainWindow", "ID", nullptr));
+        ErrorLable->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Get One", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Add", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Delete", nullptr));
         menuEntity->setTitle(QApplication::translate("MainWindow", "Entity", nullptr));
     } // retranslateUi
+
 };
 
 namespace Ui {
@@ -169,4 +236,4 @@ namespace Ui {
 
 QT_END_NAMESPACE
 
-#endif // UI_MAINWINDOW_H
+#endif // MAINWINDOW_H

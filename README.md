@@ -8,7 +8,7 @@
 
 ## Get one
 
-- [ ] Input validation.
+- [x] Input validation.
 
 ## Add
 
