@@ -44,7 +44,7 @@ public:
     QTableWidget *oneEntityTable;
     QLabel *label;
     QSpinBox *idInput_One;
-    QLabel *ErrorLable;
+    QLabel *ErrorLable_One;
     QWidget *tab_3;
     QWidget *tab_4;
     QMenuBar *menubar;
@@ -142,9 +142,9 @@ public:
         idInput_One->setObjectName(QString::fromUtf8("idInput_One"));
         idInput_One->setGeometry(QRect(330, 140, 251, 26));
         idInput_One->setMaximum(999999999);
-        ErrorLable = new QLabel(tab_2);
-        ErrorLable->setObjectName(QString::fromUtf8("ErrorLable"));
-        ErrorLable->setGeometry(QRect(270, 340, 291, 20));
+        ErrorLable_One = new QLabel(tab_2);
+        ErrorLable_One->setObjectName(QString::fromUtf8("ErrorLable_One"));
+        ErrorLable_One->setGeometry(QRect(270, 340, 291, 20));
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
@@ -168,7 +168,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -221,7 +221,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem15 = oneEntityTable->horizontalHeaderItem(7);
         ___qtablewidgetitem15->setText(QApplication::translate("MainWindow", "Debt", nullptr));
         label->setText(QApplication::translate("MainWindow", "ID", nullptr));
-        ErrorLable->setText(QString());
+        ErrorLable_One->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Get One", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Add", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_4), QApplication::translate("MainWindow", "Delete", nullptr));

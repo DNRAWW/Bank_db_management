@@ -10,6 +10,8 @@ MainWindow::MainWindow(BankManagment<Customer>* bank, QWidget *parent)
 
     ui->setupUi(this);
     ui->allEntityTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    ui->ErrorLable_One->setStyleSheet("QLabel { color : red; }");
+
     connect(ui->getAllButton, SIGNAL(clicked()), SLOT(getAll()));
     connect(ui->getOneButton, SIGNAL(clicked()), SLOT(getOne()));
 }
@@ -52,7 +54,7 @@ void MainWindow::getOne() {
         Customer* customer = bank->getOne(ui->idInput_One->text().toInt());
 
         ui->oneEntityTable->setRowCount(0);
-        ui->ErrorLable->setText("");
+        ui->ErrorLable_One->setText("");
 
         std::string debtStatusAnswer = customer->isInDebt() ? "Yes" : "No";
 
@@ -77,6 +79,6 @@ void MainWindow::getOne() {
         ui->oneEntityTable->setItem(0, 7, debt);
 
     } catch(char const* error) {
-        ui->ErrorLable->setText(QString::fromStdString(error));
+        ui->ErrorLable_One->setText(QString::fromStdString(error));
     }
 }
