@@ -28,7 +28,6 @@ void MockRepository<T>::deleteById(uint64_t id) {
     }
 
     else {
-        delete it -> second;
         db.erase(it);
     }
 }

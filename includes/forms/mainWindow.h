@@ -23,6 +23,8 @@ private slots:
     void getAll();
     void getOne();
     // void add();
-    // void delete();
+    void deleteEntity();
+    void yesClicked();
+    void noClicked();
 };
 #endif // C_MAINWINDOW_H

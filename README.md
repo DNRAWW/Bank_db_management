@@ -16,4 +16,4 @@
 
 ## Delete
 
-- [ ] Show the customer and ask if they are sure.
+- [x] Show the customer and ask if they are sure.
