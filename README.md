@@ -4,32 +4,18 @@ Qt application for managing bank database, works with postgres.
 
 # TODO
 
-## Repository interface:
+## Get all
 
-- [x] Method add;
-- [x] Method delete;
-- [x] Method get all people;
-- [x] Method get one person by id;
-- [ ] Method change;
-- [ ] Method delete by property;
-- [ ] Method get by property and order (true or false).
+- [x] Button to get all.
 
-## Bank managment class:
+## Get one
 
-- [x] A provider;
-- [x] A repository;
-- [x] Method add;
-- [x] Method delete by id;
-- [x] Method get all people;
-- [x] Method get one person by id;
-- [ ] Method change;
-- [ ] Method delete by properties;
-- [ ] Method get by properties and order (true or false, DESC/ASC).
+- [x] Input validation.
 
-## Main loop class:
+## Add
 
-- [x] Run method.
+- [ ] Input validation.
 
-## Other features
+## Delete
 
-- [ ] UI
+- [x] Show the customer and ask if they are sure.

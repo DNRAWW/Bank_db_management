@@ -24,11 +24,10 @@ void MockRepository<T>::deleteById(uint64_t id) {
     it = db.find(id);
 
     if(it == db.end()){
-        throw std::runtime_error("The item with given id does not exist");
+        throw "The item with given id does not exist";
     }
 
     else {
-        delete it -> second;
         db.erase(it);
     }
 }
@@ -49,7 +48,7 @@ T* MockRepository<T>::findById(uint64_t id) {
     it = db.find(id);
 
     if(it == db.end()){
-        throw std::runtime_error("The item with given id does not exist");
+        throw "The item with given id does not exist";
     } 
     else {
         return it->second;
