@@ -22,9 +22,11 @@ private:
 private slots:
     void getAll();
     void getOne();
-    // void add();
+    void addEntity();
     void deleteEntity();
     void yesClicked();
     void noClicked();
+    void isEverythingFilled();
+    void doesCustomerHaveDebt();
 };
 #endif // C_MAINWINDOW_H

@@ -9,11 +9,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
+#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -22,6 +27,7 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -46,6 +52,27 @@ public:
     QSpinBox *idInput_One;
     QLabel *ErrorLable_One;
     QWidget *tab_3;
+    QWidget *layoutWidget;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_firstName;
+    QLineEdit *input_firstName;
+    QLabel *label_middleName;
+    QLineEdit *input_middleName;
+    QLabel *label_lastName;
+    QLineEdit *input_lastName;
+    QLabel *label_sex;
+    QComboBox *input_sex;
+    QLabel *label_dateOfBirth;
+    QDateEdit *input_dateOfBirth;
+    QLabel *label_address;
+    QLineEdit *input_address;
+    QLabel *label_amounOfM;
+    QDoubleSpinBox *input_amountOfM;
+    QLabel *label_isInDebt;
+    QComboBox *input_isInDebt;
+    QLabel *label_amountOfD;
+    QDoubleSpinBox *input_amountOfD;
+    QPushButton *addButton;
     QWidget *tab_4;
     QLabel *ErrorLable_Delete;
     QPushButton *deleteButton;
@@ -63,7 +90,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(905, 653);
+        MainWindow->resize(900, 653);
         MainWindow->setMouseTracking(false);
         actionCustomer = new QAction(MainWindow);
         actionCustomer->setObjectName(QString::fromUtf8("actionCustomer"));
@@ -156,6 +183,128 @@ public:
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
         tab_3->setObjectName(QString::fromUtf8("tab_3"));
+        layoutWidget = new QWidget(tab_3);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 5, 891, 561));
+        verticalLayout = new QVBoxLayout(layoutWidget);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        label_firstName = new QLabel(layoutWidget);
+        label_firstName->setObjectName(QString::fromUtf8("label_firstName"));
+        label_firstName->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_firstName);
+
+        input_firstName = new QLineEdit(layoutWidget);
+        input_firstName->setObjectName(QString::fromUtf8("input_firstName"));
+
+        verticalLayout->addWidget(input_firstName);
+
+        label_middleName = new QLabel(layoutWidget);
+        label_middleName->setObjectName(QString::fromUtf8("label_middleName"));
+        label_middleName->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_middleName);
+
+        input_middleName = new QLineEdit(layoutWidget);
+        input_middleName->setObjectName(QString::fromUtf8("input_middleName"));
+
+        verticalLayout->addWidget(input_middleName);
+
+        label_lastName = new QLabel(layoutWidget);
+        label_lastName->setObjectName(QString::fromUtf8("label_lastName"));
+        label_lastName->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_lastName);
+
+        input_lastName = new QLineEdit(layoutWidget);
+        input_lastName->setObjectName(QString::fromUtf8("input_lastName"));
+
+        verticalLayout->addWidget(input_lastName);
+
+        label_sex = new QLabel(layoutWidget);
+        label_sex->setObjectName(QString::fromUtf8("label_sex"));
+        label_sex->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_sex);
+
+        input_sex = new QComboBox(layoutWidget);
+        input_sex->addItem(QString());
+        input_sex->addItem(QString());
+        input_sex->setObjectName(QString::fromUtf8("input_sex"));
+
+        verticalLayout->addWidget(input_sex);
+
+        label_dateOfBirth = new QLabel(layoutWidget);
+        label_dateOfBirth->setObjectName(QString::fromUtf8("label_dateOfBirth"));
+        label_dateOfBirth->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_dateOfBirth);
+
+        input_dateOfBirth = new QDateEdit(layoutWidget);
+        input_dateOfBirth->setObjectName(QString::fromUtf8("input_dateOfBirth"));
+        input_dateOfBirth->setMinimumDateTime(QDateTime(QDate(1900, 9, 14), QTime(0, 0, 0)));
+        input_dateOfBirth->setMaximumDate(QDate(2024, 12, 31));
+        input_dateOfBirth->setMinimumDate(QDate(1900, 9, 14));
+        input_dateOfBirth->setCalendarPopup(true);
+
+        verticalLayout->addWidget(input_dateOfBirth);
+
+        label_address = new QLabel(layoutWidget);
+        label_address->setObjectName(QString::fromUtf8("label_address"));
+        label_address->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_address);
+
+        input_address = new QLineEdit(layoutWidget);
+        input_address->setObjectName(QString::fromUtf8("input_address"));
+
+        verticalLayout->addWidget(input_address);
+
+        label_amounOfM = new QLabel(layoutWidget);
+        label_amounOfM->setObjectName(QString::fromUtf8("label_amounOfM"));
+        label_amounOfM->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_amounOfM);
+
+        input_amountOfM = new QDoubleSpinBox(layoutWidget);
+        input_amountOfM->setObjectName(QString::fromUtf8("input_amountOfM"));
+        input_amountOfM->setMaximum(9999999999999999538762658202121142272.000000000000000);
+
+        verticalLayout->addWidget(input_amountOfM);
+
+        label_isInDebt = new QLabel(layoutWidget);
+        label_isInDebt->setObjectName(QString::fromUtf8("label_isInDebt"));
+        label_isInDebt->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_isInDebt);
+
+        input_isInDebt = new QComboBox(layoutWidget);
+        input_isInDebt->addItem(QString());
+        input_isInDebt->addItem(QString());
+        input_isInDebt->setObjectName(QString::fromUtf8("input_isInDebt"));
+
+        verticalLayout->addWidget(input_isInDebt);
+
+        label_amountOfD = new QLabel(layoutWidget);
+        label_amountOfD->setObjectName(QString::fromUtf8("label_amountOfD"));
+        label_amountOfD->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_amountOfD);
+
+        input_amountOfD = new QDoubleSpinBox(layoutWidget);
+        input_amountOfD->setObjectName(QString::fromUtf8("input_amountOfD"));
+        input_amountOfD->setEnabled(false);
+        input_amountOfD->setMaximum(9999999999999999538762658202121142272.000000000000000);
+
+        verticalLayout->addWidget(input_amountOfD);
+
+        addButton = new QPushButton(layoutWidget);
+        addButton->setObjectName(QString::fromUtf8("addButton"));
+        addButton->setEnabled(false);
+
+        verticalLayout->addWidget(addButton);
+
         tabWidget->addTab(tab_3, QString());
         tab_4 = new QWidget();
         tab_4->setObjectName(QString::fromUtf8("tab_4"));
@@ -215,7 +364,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 905, 22));
+        menubar->setGeometry(QRect(0, 0, 900, 22));
         menuEntity = new QMenu(menubar);
         menuEntity->setObjectName(QString::fromUtf8("menuEntity"));
         MainWindow->setMenuBar(menubar);
@@ -228,7 +377,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabWidget->setCurrentIndex(3);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -283,6 +432,23 @@ public:
         label->setText(QApplication::translate("MainWindow", "ID", nullptr));
         ErrorLable_One->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QApplication::translate("MainWindow", "Get One", nullptr));
+        label_firstName->setText(QApplication::translate("MainWindow", "First name", nullptr));
+        label_middleName->setText(QApplication::translate("MainWindow", "Middle name", nullptr));
+        label_lastName->setText(QApplication::translate("MainWindow", "Last name", nullptr));
+        label_sex->setText(QApplication::translate("MainWindow", "Sex", nullptr));
+        input_sex->setItemText(0, QApplication::translate("MainWindow", "Male", nullptr));
+        input_sex->setItemText(1, QApplication::translate("MainWindow", "Female", nullptr));
+
+        label_dateOfBirth->setText(QApplication::translate("MainWindow", "Date of birth", nullptr));
+        input_dateOfBirth->setDisplayFormat(QApplication::translate("MainWindow", "M/d/yyyy", nullptr));
+        label_address->setText(QApplication::translate("MainWindow", "Address", nullptr));
+        label_amounOfM->setText(QApplication::translate("MainWindow", "Amount of money", nullptr));
+        label_isInDebt->setText(QApplication::translate("MainWindow", "Is in debt?", nullptr));
+        input_isInDebt->setItemText(0, QApplication::translate("MainWindow", "No", nullptr));
+        input_isInDebt->setItemText(1, QApplication::translate("MainWindow", "Yes", nullptr));
+
+        label_amountOfD->setText(QApplication::translate("MainWindow", "Amount of debt", nullptr));
+        addButton->setText(QApplication::translate("MainWindow", "Add", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_3), QApplication::translate("MainWindow", "Add", nullptr));
         ErrorLable_Delete->setText(QString());
         deleteButton->setText(QApplication::translate("MainWindow", "Delete", nullptr));

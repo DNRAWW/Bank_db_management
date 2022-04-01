@@ -2,7 +2,7 @@
 #include "../../includes/forms/ui_mainWindow.h"
 #include <iostream>
 
-MainWindow::MainWindow(BankManagment<Customer>* bank, QWidget *parent)
+MainWindow::MainWindow(BankManagment<Customer>* bank, QWidget *parent) 
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -21,6 +21,12 @@ MainWindow::MainWindow(BankManagment<Customer>* bank, QWidget *parent)
     connect(ui->deleteButton, SIGNAL(clicked()), SLOT(deleteEntity()));
     connect(ui->yesButton, SIGNAL(clicked()), SLOT(yesClicked()));
     connect(ui->noButton, SIGNAL(clicked()), SLOT(noClicked()));
+    connect(ui->input_isInDebt, SIGNAL(currentIndexChanged(const QString&)), SLOT(doesCustomerHaveDebt()));
+    connect(ui->input_firstName, SIGNAL(textChanged(const QString &)), SLOT(isEverythingFilled()));
+    connect(ui->input_middleName, SIGNAL(textChanged(const QString &)), SLOT(isEverythingFilled()));
+    connect(ui->input_lastName, SIGNAL(textChanged(const QString &)), SLOT(isEverythingFilled()));
+    connect(ui->input_address, SIGNAL(textChanged(const QString &)), SLOT(isEverythingFilled()));
+    connect(ui->addButton, SIGNAL(clicked()), SLOT(addEntity()));
 }
 
 void MainWindow::getAll() {
@@ -151,4 +157,60 @@ void MainWindow::noClicked() {
     ui->noButton->setEnabled(0);
 
     ui->deleteEntityTable->setRowCount(0);
+}
+
+void MainWindow::doesCustomerHaveDebt() {
+    std::string selection = ui->input_isInDebt->currentText().toStdString();
+
+    if(selection == "Yes") {
+        ui->input_amountOfD->setEnabled(1);
+    } else {
+        ui->input_amountOfD->setValue(0);
+        ui->input_amountOfD->setEnabled(0);
+    }
+}
+
+void MainWindow::isEverythingFilled() {
+    bool firstName = ui->input_firstName->text().isEmpty();
+    bool middleName = ui->input_middleName->text().isEmpty();
+    bool lastName = ui->input_lastName->text().isEmpty();
+    bool address = ui->input_address->text().isEmpty();
+
+    if(firstName || middleName || lastName || address) return;
+
+    ui->addButton->setEnabled(1);
+}
+
+void MainWindow::addEntity() {
+    std::string firstName = ui->input_firstName->text().toStdString();
+    std::string middleName = ui->input_middleName->text().toStdString();
+    std::string lastName = ui->input_lastName->text().toStdString();
+    std::string address = ui->input_address->text().toStdString();
+
+    std::string sexS = ui->input_sex->currentText().toStdString();
+    Sexes sex = sexS[0] == 'M' ? MALE : FEMALE;
+
+    std::string dateOfBirth = ui->input_dateOfBirth->text().toStdString();
+    float money = ui->input_amountOfM->text().toFloat();
+    float debt = ui->input_amountOfD->text().toFloat();
+
+    Customer* customer = new Customer(sex, dateOfBirth);
+    customer->setFirstName(firstName);
+    customer->setMiddleName(middleName);
+    customer->setLastName(lastName);
+    customer->setAddress(address);
+    customer->setAmountOfMoney(money);
+    customer->setAmountOfDebt(debt);
+
+    bank->add(customer);
+
+    ui->input_firstName->setText("");
+    ui->input_middleName->setText("");
+    ui->input_lastName->setText("");
+    ui->input_address->setText("");
+    ui->input_isInDebt->setCurrentIndex(0);
+    ui->input_amountOfD->setValue(0);
+    ui->input_amountOfM->setValue(0);
+
+    ui->addButton->setEnabled(0);
 }
