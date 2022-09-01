@@ -1,6 +1,6 @@
 # Bank database managment
 
-Qt application for managing bank database, works with postgres.
+Qt application for managing bank database.
 
 # TODO
 
